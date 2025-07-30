@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/to-do-favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./dist/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    // Enable dark mode via class strategy
+    tailwind.config = {
+      darkMode: 'class',
+    };</script>
+    <title>SmartToDo</title>
+</head>
+<body class="transition-colors duration-500">
+  <div class="relative min-h-screen transition-colors duration-500">
+
+    <!--Background Image -->
+    <div class="absolute inset-0 z-0">
+      <div class="w-full h-full bg-[url('./assets/Body-bg.jpg')] bg-cover bg-center"></div>
+
+      <!--Dark Overlay -->
+      <div class="absolute inset-0 bg-black bg-opacity-60 hidden dark:block transition-opacity duration-500 pointer-events-none"></div>
+    </div>
+
+    <!--MainContent -->
+    <div class="relative z-10 flex flex-col space-y-7 min-h-screen">
+
+      <!-- Theme Toggle Button -->
+      <button id="themeToggle"
+        class="fixed top-5 left-6 w-20 h-20 flex items-center justify-center rounded-full
+        bg-white text-yellow-500 text-4xl shadow-lg transition-all duration-300 z-50">☀️</button>
+
+      <!-- Stats -->
+      <div class="w-[500px] h-[150px] bg-[#BF211E] dark:bg-black text-white mx-auto p-8 flex 
+        flex-row justify-between rounded-lg mt-20 hover:shadow-[0_4px_20px_rgba(255,255,0,0.6)]">
+        <div class="w-[200px] flex flex-col">
+          <h2 class="font-sans text-xl font-bold heading">Work to be done</h2>
+          <p class="para">Keep It Up!</p>
+          <div class="w-[300px] h-[10px] rounded-2xl bg-[#640D14] dark:bg-gray-800 mt-5 progress-bar">
+            <div class="bg-[#E9CE2C] dark:bg-gray-600 w-[0%] h-[10px] rounded-2xl transition-all duration-300 progress"></div>
+          </div>
+        </div>
+        <div class="bg-[#E9CE2C] dark:bg-gray-600 w-22 h-22 text-center rounded-full p-6 pt-7">
+          <p class="font-bold text-lg numbers">0 / 0</p>
+        </div>
+      </div>
+
+      <!-- Input Field -->
+      <div class="w-full h-[50px] flex flex-row justify-center items-center gap-2">
+        <div class="bg-[#BF211E] dark:bg-black max-w-[900px] rounded-2xl">
+          <input type="text" placeholder="Write Your Tasks"
+            class="w-[350px] h-[36px] placeholder-white placeholder-opacity-50 p-3 
+            border-none outline-none text-[#E9CE2C] dark:text-gray-400 hover:shadow-[0_4px_20px_rgba(255,255,0,0.6)] task-input">
+        </div>
+        <button type="submit"
+          class="w-10 h-10 rounded-full bg-[#BF211E] dark:bg-black text-white 
+          hover:shadow-[0_4px_20px_rgba(255,255,0,0.6)] text-[22px] flex items-center justify-center task-btn">
+          +
+        </button>
+      </div>
+
+      <!-- Task List -->
+      <div>
+        <ul class="tasks-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+</body>
+
+</html>
